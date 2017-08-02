@@ -1,0 +1,114 @@
+import acm.graphics.GImage;
+import acm.graphics.GLabel;
+import acm.graphics.GRect;
+import acm.program.GraphicsProgram;
+
+import java.awt.Color;
+import java.awt.event.*;
+
+public class Áõ×ÓÑôÀúÏÕ¼Ç extends GraphicsProgram{
+	
+	private static final int screen_width=1920;
+	
+	private static final int screen_height=1080;
+	
+	private static final int picture_height=133;
+	
+	private static final int picture_width=100;
+    
+	private static  int VEL_GuoWei=10;
+	
+	private static final int Delay=30;
+	
+	private static final int VEL_Book=80;
+	
+	private static final int picture1_width=810;
+	
+	
+	
+	
+	public void run(){
+		    SetUp1();
+		    setup2();
+		    while(!gameover()){
+		    	
+		    	moveGuoWei();
+		    	
+		    	
+				pause(Delay);
+		    }
+		  
+	}
+		
+    GImage picture_¿ÖÁú1;
+    private GImage picture_¿ÖÁú2;
+    
+	private void SetUp1() {
+	
+		GRect Backgrund=new GRect (0,0,screen_width,screen_height);
+	    Backgrund.setFilled(true);
+	    
+		add(Backgrund);
+	
+	    GImage picture1=new GImage("2.jpg");
+	
+	    add(picture1,(screen_width-picture1_width)/2,0);
+	    GLabel talk=new GLabel("  ¹úÎ°Å·°Í £¬ÔÛÏÖÔÚÈ¥ÄÄÑ½~~",(screen_width-picture1_width)/2,screen_height/4);
+		talk.setFont("SansSerif-48");
+		talk.setColor(Color.black);
+		GLabel talk1=new GLabel("  Õæ¿ñßÖ£¬×ßÈ¥Ñ§Ğ£...",(screen_width-picture1_width)/2,screen_height/4);
+		talk1.setFont("SansSerif-48");
+		talk1.setColor(Color.black);
+		// TODO Auto-generated method stub
+		waitForClick();
+		add(talk);
+		waitForClick();
+		remove(talk);
+		add(talk1);
+		waitForClick();
+		removeAll();
+		add(Backgrund);
+		GImage picture2=new GImage("3.jpg");
+		add(picture2,(screen_width-picture1_width)/2,0);
+		waitForClick();
+		removeAll();
+		}
+	    private void setup2(){
+	    	GImage picture3=new GImage("ÖĞ¹úÃÀÊõÑ§Ôº.jpg",0,0);
+	    	GImage picture4=new GImage("4.jpg",screen_width/2+2*picture_width,screen_height-picture_height*3/2);
+	    	GImage picture5=new GImage("5.jpg",screen_width/2+4*picture_width,screen_height-picture_height*3/2);
+	    	GImage picture6=new GImage("6.jpg",screen_width/2+6*picture_width,screen_height-picture_height*3/2);
+	    	GImage picture7=new GImage("7.jpg",screen_width/2+8*picture_width,screen_height-picture_height*3/2);
+	    	 picture_¿ÖÁú2=new GImage("¿ÖÁú2.jpg",0,0);
+	    	GImage picture_½ÌÊÚ=new GImage("½ÌÊÚ.jpg",screen_width/2,screen_height-picture_height*3/2);
+	    	 picture_¿ÖÁú1=new GImage("¿ÖÁú1.jpg",screen_width/2-picture_width,screen_height-picture_height*3/2);
+	    	add(picture3);
+	    	add(picture_¿ÖÁú1);
+	    	add(picture_½ÌÊÚ);
+	    	add(picture4);
+	    	add(picture5);
+	    	add(picture6);
+	    	add(picture7);
+	    	
+	    	
+	    }
+	    private boolean gameover(){
+	    	return (picture_¿ÖÁú1.getY()<=0&&picture_¿ÖÁú1.getX()<=0 );
+	    }
+	    private void moveGuoWei(){
+	    	
+	    	picture_¿ÖÁú1.move(-VEL_GuoWei,0);
+	    	
+	    	if(picture_¿ÖÁú1.getX()<=0){
+	    		add(picture_¿ÖÁú2,0,picture_¿ÖÁú1.getY()+picture_height);
+	    		remove(picture_¿ÖÁú1);
+	    		picture_¿ÖÁú2.move(VEL_GuoWei,0);
+	    	}
+	    	if(picture_¿ÖÁú2.getX()>=screen_width-picture_width){
+	    		add(picture_¿ÖÁú1,screen_width-picture_width,picture_¿ÖÁú2.getY()+picture_height);
+	    		remove(picture_¿ÖÁú2);
+	    		picture_¿ÖÁú1.move(-VEL_GuoWei,0);
+	    		
+	    	}
+	    }
+}       

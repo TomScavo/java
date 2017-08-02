@@ -1,0 +1,33 @@
+import acm.program.GraphicsProgram;
+
+import acm.graphics.*;
+
+import java.awt.event.*;
+
+
+
+
+public class ClickImage extends GraphicsProgram{
+	public static void main (String args[]) {
+	}
+	 
+	 public  void run(){
+	  GLabel i=new GLabel("点击得教授");
+	  add(i,getHeight()/2,getWidth()/2);
+	}
+	
+	
+	public void init(){
+		addMouseListeners();
+	}
+	
+	
+	public void mouseClicked(MouseEvent e){
+	
+	GImage image = new GImage ("可爱的教授.jpg");
+	
+	add(image,e.getX(),e.getY());
+	
+
+ }
+}

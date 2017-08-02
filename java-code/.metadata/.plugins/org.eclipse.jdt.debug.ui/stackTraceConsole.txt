@@ -1,0 +1,8 @@
+GRect Backgrund=new GRect (screen_width,screen_height);
+				
+				add(Backgrund,0,0);
+				
+				GImage picture1=new GImage("2.jpg");
+				
+				add(picture1,(screen_width-picture1_width)/2,0);
+				

@@ -1,0 +1,176 @@
+import acm.graphics.GImage;
+import acm.graphics.GLabel;
+import acm.graphics.GObject;
+import acm.graphics.GPoint;
+import acm.graphics.GRect;
+import acm.program.GraphicsProgram;
+
+import java.awt.Color;
+import java.awt.Point;
+import java.awt.event.*;
+
+public class 调试 extends GraphicsProgram{
+	
+	private static final int screen_width=1920;
+	
+	private static final int screen_height=1080;
+	
+	private static final int picture_height=133;
+	
+	private static final int picture_width=100;
+    
+	private static  int VEL_GuoWei=15;
+	
+	private static final int Delay=20;
+	
+	private static final int VEL_Book=20;
+	
+	private static final int picture1_width=810;
+	
+	
+	
+	
+	public void run(){
+		addMouseListeners();
+		    SetUp1();
+		    setup2();
+	while(true){
+		
+		    	moveGuoWei();
+		    	moveBook();
+			    pause(Delay);
+			    GLabel talk3=new GLabel(" ょっと待って，chyottomatte！!!! " +
+						"不要啊!!! ",(screen_width-picture1_width)/2,screen_height/4);
+				talk3.setFont("SansSerif-48");
+				talk3.setColor(Color.white);
+		    	add(talk3);
+		    }
+		
+	}
+		
+   
+	private void SetUp1() {
+		
+		GRect Backgrund=new GRect (0,0,screen_width,screen_height);
+	    Backgrund.setFilled(true);
+	    
+		add(Backgrund);
+	
+	    GImage picture1=new GImage("2.jpg");
+	
+	    add(picture1,(screen_width-picture1_width)/2,0);
+	    GLabel talk=new GLabel("  国伟欧巴 ，咱现在去哪呀~~",(screen_width-picture1_width)/2,screen_height/10);
+		talk.setFont("SansSerif-48");
+		talk.setColor(Color.black);
+		GLabel talk1=new GLabel("  真狂咧，走去学校...",(screen_width-picture1_width)/2,screen_height/4);
+		talk1.setFont("SansSerif-48");
+		talk1.setColor(Color.black);
+		// TODO Auto-generated method stub
+		waitForClick();
+		add(talk);
+		waitForClick();
+		remove(talk);
+		add(talk1);
+		waitForClick();
+		removeAll();
+		add(Backgrund);
+		GImage picture2=new GImage("3.jpg");
+		add(picture2,(screen_width-picture1_width)/2,0);
+		waitForClick();
+		removeAll();
+		}
+	    private void setup2(){
+	    	picture_4=new GImage("中国美术史.jpg",screen_width/2+picture_width/2,screen_height+picture_height);
+	    	picture_5=new GImage("西方美术史.jpg",screen_width/2+picture_width/2,100);
+	    	picture_6=new GImage("马哲.jpg",screen_width/2+picture_width/2,screen_height+picture_height);
+	    	picture_7=new GImage("毛概.jpg",screen_width/2+picture_width/2,screen_height+picture_height);
+	    	GImage picture3=new GImage("中国美术学院.jpg",0,0);
+	    	 picture4=new GImage("4.jpg",screen_width/2+2*picture_width,screen_height-picture_height*3/2);
+	    	 picture5=new GImage("5.jpg",screen_width/2+4*picture_width,screen_height-picture_height*3/2);
+	    	 picture6=new GImage("6.jpg",screen_width/2+6*picture_width,screen_height-picture_height*3/2);
+	    	 picture7=new GImage("7.jpg",screen_width/2+8*picture_width,screen_height-picture_height*3/2);
+	    	 picture_恐龙2=new GImage("恐龙2.jpg",0,screen_height-picture_height*5/2);
+	    	GImage picture_教授=new GImage("教授.jpg",screen_width/2,screen_height-picture_height*3/2);
+	    	 picture_恐龙1=new GImage("恐龙1.jpg",screen_width/2-picture_width,screen_height-picture_height*3/2);
+	    	add(picture3);
+	    	add(picture_恐龙1);
+	    	add(picture_教授);
+	    	add(picture4);
+	    	add(picture5);
+	    	add(picture6);
+	    	add(picture7);
+	    	GLabel talk2=new GLabel("  国伟别跑，快回来，快快快...",screen_width/3,screen_height/4);
+			talk2.setFont("SansSerif-48");
+			talk2.setColor(Color.white);
+			add(talk2);
+			waitForClick();
+			remove(talk2);
+			GLabel talk3=new GLabel(" ょっと待って，chyottomatte！!!! " +
+					"不要啊!!! ",(screen_width-picture1_width)/2,screen_height/4);
+			talk3.setFont("SansSerif-48");
+			talk3.setColor(Color.white);
+	    	add(talk3);
+	    	waitForClick();
+	    	remove(talk3);
+	    	
+	    }
+	    private boolean gameover(){
+	    	return (picture_恐龙1.getY()<=0);
+	    }
+	    private void moveGuoWei(){
+	    	int i=0;
+	    	int j=0;
+	    	picture_恐龙1.move(-VEL_GuoWei, 0);
+	    	picture_恐龙2.move(VEL_GuoWei, 0);
+	    	if(picture_恐龙1.getX()<=0){
+	    		add(picture_恐龙2,0,-2*i*picture_height+screen_height-picture_height*5/2);
+	    		remove(picture_恐龙1);
+	    		++i;
+	    	}
+	    	if(picture_恐龙2.getX()>=screen_width-picture_width){
+	    		add(picture_恐龙1,screen_width/2-picture_width,-2*i*picture_height+screen_height-picture_height*7/2);
+	    		remove(picture_恐龙2);
+	    		++j;
+	    	}
+	    	
+	    	picture_恐龙2.move(VEL_GuoWei, 0);
+	    
+	    }
+	    	
+	    public void mouseClicked(MouseEvent e){
+    		point=new GPoint(e.getPoint());
+    		books= getElementAt(point);
+    		if(books.equals(picture4)){
+    			add(picture_4);
+    		}else if(books.equals(picture5)){
+    			
+    			add(picture_5);
+    		}else if(books.equals(picture6)){
+    			
+    			add(picture_6);
+    }else if(books.equals(picture7)){
+    	
+		add(picture_7);
+    	
+    }
+	    }
+	    	private void moveBook(){
+    			picture_4.move(0,-VEL_Book);
+	    			
+	    		}
+	    	private void checkForCollision(){
+	    		
+	    	}
+	    	private GImage picture_恐龙1;
+	        private GImage picture_恐龙2;
+	        private GPoint point;
+	        private GObject books;
+	        private	GImage picture4;
+	    	private	GImage picture5;
+	    	private	GImage picture6;
+	    	private GImage picture7;
+	    	private	GImage picture_4;
+	    	private	GImage picture_5;
+	    	private	GImage picture_6;
+	    	private GImage picture_7; 
+}

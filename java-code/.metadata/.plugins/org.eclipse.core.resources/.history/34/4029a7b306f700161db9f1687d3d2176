@@ -1,0 +1,71 @@
+import acm.graphics.GImage;
+import acm.graphics.GLabel;
+import acm.graphics.GRect;
+import acm.program.GraphicsProgram;
+
+import java.awt.Color;
+import java.awt.event.*;
+
+public class 刘子阳历险记 extends GraphicsProgram{
+	
+	private static final int screen_width=1920;
+	
+	private static final int screen_height=1080;
+	
+	private static final int picture_height=133;
+	
+	private static final int picture_width=100;
+    
+	private static  int VEL_GuoWei=10;
+	
+	private static final int Delay=30;
+	
+	private static final int VEL_Book=80;
+	
+	private static final int picture1_width=810;
+	
+	
+	
+	
+	public void run(){
+		
+		    SetUp1();
+		    int i=0;
+			
+			addMouseListeners();
+			
+	}
+		
+
+	private void SetUp1() {
+	
+		GRect Backgrund=new GRect (screen_width,screen_height);
+	    Backgrund.setFilled(true);
+	    
+		add(Backgrund,0,0);
+	
+	    GImage picture1=new GImage("2.jpg");
+	
+	    add(picture1,(screen_width-picture1_width)/2,0);
+	
+		// TODO Auto-generated method stub
+		
+	
+		}
+	      
+	       }
+	        public void mouseClicked(MouseEvent e){
+			
+	        	GLabel talk=new GLabel("  国伟欧巴 ，咱现在去哪呀~~",(screen_width-picture1_width)/2,screen_height/4);
+				talk.setFont("SansSerif-48");
+				talk.setColor(Color.black);
+				GLabel talk1=new GLabel("  真狂咧，走去学校...");
+				int i
+				if(i==0){
+					add(talk);
+					
+				}else if(i==1){
+					removeAll();
+				}
+	        }
+}

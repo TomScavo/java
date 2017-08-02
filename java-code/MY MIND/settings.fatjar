@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Fri Oct 07 01:40:21 CST 2016
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=C\:\\Users\\lsl\\Desktop\\\u53EF\u7231\u7684\u6559\u6388.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=<createnew>
+jarname.isextern=true
+onejar.expand=
+excludes=
+includes=

@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Fri Oct 07 15:47:00 CST 2016
+onejar.license.required=false
+manifest.classpath=.
+manifest.removesigners=true
+onejar.checkbox=true
+jarname=E\:\\GTA5\\\u65B0\u5EFA\u6587\u4EF6\u5939\\MY MIND\\\u53EF\u7231\u7684.jar
+manifest.mergeall=true
+manifest.mainclass=ClickImage
+manifest.file=src
+jarname.isextern=true
+onejar.expand=
+excludes=
+includes=
